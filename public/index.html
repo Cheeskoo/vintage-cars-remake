@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,chevron_forward,chevron_backward&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/car-icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Vintage Cars</title>
+</head>
+<body>
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="navbar__start">
+                <button class="btn navbar__theme-toggle" aria-label="Cambiar modo de color">
+                    <span class="material-symbols-outlined navbar__icon navbar__icon--toggle">moon_stars</span>
+                </button>
+                <a href="index.html" class="link navbar__logo">Vintage Cars</a>
+            </div>
+            <div class="navbar__end">
+                <button class="btn navbar__menu navbar__menu--mobile-only" aria-label="Abrir menu de navegacion">
+                    <span class="material-symbols-outlined navbar__icon navbar__icon--big">menu</span>
+                </button>
+                <ul class="navbar__list">
+                    <li class="navbar__item"><button class="btn navbar__close navbar__close--mobile-only" aria-label="Cerrar menu de navegacion">
+                        <span class="material-symbols-outlined navbar__icon navbar__icon--big">close</span>
+                    </button></li>
+                    <li class="navbar__item navbar__item--highlight"><a href="html/catalogo.html" class="link navbar__link navbar__link--highlight">Catalogo</a></li>
+                    <li class="navbar__item"><a href="#" class="link navbar__link">Dashboard</a></li>
+                    <li class="navbar__item navbar__item--accent"><a href="./html/login.html" class="link navbar__link navbar__link--accent">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero__container">
+            <div class="hero__content">
+                <h1 class="hero__title">
+                   <span class="hero__title--accent"> 
+                     Conecta con la historia:
+                    </span>
+                    Explora y guarda tus vehículos clásicos preferidos.      
+                </h1>
+                <p class="hero__description">
+                    Revisa nuestro catalogo donde podras encontrar una gran variedad de autos clasicos.
+                </p>
+                <div class="hero__actions">
+                    <a href="html/catalogo.html" class="link hero__btn hero__btn--accent">Explorar catalogo</a>
+                    <a href="./html/login.html" class="link hero__btn">Registrate en nuestra web</a>
+                </div>
+            </div>
+            <div class="hero__media">
+                <div class="hero__slider">
+                    <div class="hero__image-wrapper" id="heroSlider">
+                        <img src="images/hero__section-1.jpg" alt="Auto clasico naranja" class="hero__image">
+                        <img src="images/hero__section-2.jpg" alt="Auto clasico verde" class="hero__image">
+                        <img src="images/hero__section-3.jpg" alt="Interior de un vehiculo clasico" class="hero__image">
+                        <img src="images/hero__section-4.jpg" alt="Auto clasico naranja estacionado" class="hero__image">
+                        <img src="images/hero__section-5.jpg" alt="Autos clasicos alineados" class="hero__image">
+                        <img src="images/hero__section-6.jpg" alt="Parte trasera de un auto Bel Air" class="hero__image">
+                        <img src="images/hero__section-7.jpg" alt="Volante de auto clasico" class="hero__image">
+                        <img src="images/hero__section-8.jpg" alt="Parte trasera de un auto Continental" class="hero__image">
+                    </div>
+                    <button class="btn hero__slider-btn hero__slider-btn--prev" id="sliderPrev" aria-label="Imagen anterior">
+                        <span class="material-symbols-outlined hero__icon">chevron_backward</span>
+                    </button>
+                    <button class="btn hero__slider-btn hero__slider-btn--next" id="sliderNext" aria-label="Siguiente Imagen">
+                        <span class="material-symbols-outlined hero__icon">chevron_forward</span>
+                    </button>
+                    <div class="hero__slider-dots" id="sliderDots">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="index.js" defer></script>
+</body>
+</html>

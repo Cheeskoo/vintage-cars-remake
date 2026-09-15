@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,bookmark,dangerous&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/catalogo.css">
+    <link rel="shortcut icon" href="../images/car-icon.ico" type="image/x-icon">
+    <title>Vintage Cars</title>
+</head>
+<body>
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="navbar__start">
+                <button class="btn navbar__theme-toggle" aria-label="Cambiar modo de color">
+                    <span class="material-symbols-outlined navbar__icon navbar__icon--toggle">moon_stars</span>
+                </button>
+                <a href="../index.html" class="link navbar__logo">Vintage Cars</a>
+            </div>
+            <div class="navbar__searchbar-wrapper">
+                <form>
+                    <input type="search" name="searchbar" id="searchBar" class="navbar__searchbar" placeholder="Busca tu auto favorito">
+                </form>
+            </div>
+            <div class="navbar__end">
+                <button class="btn navbar__menu navbar__menu--mobile-only" aria-label="Abrir menu de navegacion">
+                    <span class="material-symbols-outlined navbar__icon navbar__icon--big">menu</span>
+                </button>
+                <ul class="navbar__list">
+                    <li class="navbar__item"><button class="btn navbar__close navbar__close--mobile-only" aria-label="Cerrar menu de navegacion">
+                        <span class="material-symbols-outlined navbar__icon navbar__icon--big">close</span>
+                    </button></li>
+                    <li class="navbar__item navbar__item--highlight"><a href="../index.html" class="link navbar__link navbar__link--highlight">Inicio</a></li>
+                    <li class="navbar__item"><a href="#" class="link navbar__link">Dashboard</a></li>
+                    <li class="navbar__item navbar__item--accent"><a href="./login.html" class="link navbar__link navbar__link--accent">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <aside class="filters">
+            <div class="filters__section filters__section--mobile-only">
+                <button class="btn filters__menu" id="filterMenu">
+                    Filtros
+                </button>
+            </div>
+            <form class="filters__form" id="asideForm">
+                <h2 class="filters__title">
+                    Filtros
+                </h2>
+                <fieldset class="filters__group">
+                    <legend class="filters__legend">
+                        Disponibilidad:
+                    </legend>
+                    <div class="filters__radio-wrapper">
+                        <input type="radio" name="disponibilidad" id="todos" class="filters__radio" value="default" checked>
+                        <label for="todos" class="filters__label-radio">
+                            Todos
+                        </label>
+                    </div>
+                    <div class="filters__radio-wrapper">
+                        <input type="radio" name="disponibilidad" id="disponibles" class="filters__radio" value="true">
+                        <label for="disponibles" class="filters__label-radio">
+                            Disponible
+                        </label>
+                    </div>                
+                    <div class="filters__radio-wrapper">
+                        <input type="radio" name="disponibilidad" id="noDisponibles" class="filters__radio" value="false">
+                        <label for="noDisponibles" class="filters__label-radio">
+                            No disponible
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="filters__field">
+                    <label for="filtrarCategoria" class="filters__label">
+                        Categoria:
+                    </label>
+                    <select name="categoria" id="filtrarCategoria" class="filters__select">     
+                    </select>
+                </div>
+
+                <div class="filters__field">
+                    <label for="filtrarMarca" class="filters__label">
+                        Marca:
+                    </label>
+                    <select name="marca" id="filtrarMarca" class="filters__select">
+                    </select>
+                </div>
+
+                <div class="filters__field">
+                    <label for="filtrarPrecio" class="filters__label">
+                        Ordenar:
+                    </label>
+                    <select name="precio" id="filtrarPrecio" class="filters__select">
+                        <option value="default" class="filters__option">Por defecto</option>
+                        <option value="ASC" class="filters__option">Menor Precio</option>
+                        <option value="DESC" class="filters__option">Mayor Precio</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn filters__btn">
+                    Filtrar
+                </button>
+            </form>
+        </aside>
+        <section class="products">
+            <ul class="products__grid">
+            </ul>
+        </section>
+    </main>
+    <script type="module" src="../js/catalogo.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
