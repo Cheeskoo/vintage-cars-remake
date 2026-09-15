@@ -282,7 +282,8 @@ body.theme--dark {
     height: 100vh;
     width: min(100%, 375px);
     background-color: var(--bg-surface);
-    transition: right 0.75s ease-in-out
+    transition: right 0.75s ease-in-out;
+    z-index: 20;
   }
   .navbar__menu--mobile-only,
   .navbar__close--mobile-only{
@@ -295,9 +296,6 @@ body.theme--dark {
   }
   .navbar__link{
     font-size: 1.4rem;
-  }
-  .navbar__link--highlight:hover{
-    font-size: 1.6rem;
   }
   .navbar__icon--big{
     font-size: 1.8rem;

@@ -9,7 +9,6 @@ const close = document.querySelector('.navbar__close')
 
 document.addEventListener('DOMContentLoaded', ()=>{
  initTheme(body, themeIcon)
- getFilters()
 })
 menu.addEventListener('click', openMenu)
 close.addEventListener('click', closeMenu)

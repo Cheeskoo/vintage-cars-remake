@@ -376,9 +376,6 @@ main{
   .navbar__link{
     font-size: 1.4rem;
   }
-  .navbar__link--highlight:hover{
-    font-size: 1.6rem;
-  }
   .navbar__icon--big{
     font-size: 1.8rem;
   }
