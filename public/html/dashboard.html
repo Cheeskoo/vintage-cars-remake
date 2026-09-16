@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,home,favorite,settings,logout&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,home,favorite,settings,logout,notifications,account_circle&display=block" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboard.css">
     <title>Vintage Cars</title>
@@ -29,7 +29,11 @@
                     </button></li>
                     <li class="navbar__item navbar__item--highlight"><a href="./catalogo.html" class="link navbar__link navbar__link--highlight">Catalogo</a></li>
                     <li class="navbar__item"><a href="../index.html" class="link navbar__link">Inicio</a></li>
-                    <li class="navbar__item navbar__item--accent"><a href="../html/login.html" class="link navbar__link navbar__link--accent">Login</a></li>
+                    <li class="navbar__item navbar__item--accent">
+                        <button type="button" class="btn navbar__profile">
+                            <span class="material-symbols-outlined navbar__icon-profile">account_circle</span>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -43,6 +47,10 @@
                 <a href="#" class="link sidebar__link">
                     Favoritos
                     <span class="material-symbols-outlined sidebar__icon">favorite</span>
+                </a>
+                <a href="#" class="link sidebar__link">
+                    Notificaciones
+                    <span class="material-symbols-outlined sidebar__icon">notifications</span>
                 </a>
                 <a href="#" class="link sidebar__link">
                     Configuracion
@@ -75,17 +83,18 @@
                         Coleccion Destacada
                     </h2>
                     <div class="panel__grid">
-                        <article class="card">
-                            <div class="card__info">
-                                <img src="#" alt="info-car" class="card__img">
-                                <h3 class="card__title">
+                        <article class="car-card">
+                            <div class="car-card__info">
+                                <img src="https://images.unsplash.com/photo-1603909390477-bf6fc90bb68e?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="info-car" class="car-card__img">
+                                <h3 class="car-card__title">
                                     Porsche 911
                                 </h3>
-                                <p class="card__year-category">
-                                    1985 Clasico Deportivo
-                                </p>
+                                <div class="car-card__year-category">
+                                   <span class="car-card__year">1973</span>
+                                   <span class="car-card__category">Deportivo Clásico</span>
+                                </div>
                             </div>
-                            <button type="button" class="btn card__btn">
+                            <button type="button" class="btn car-card__btn">
                                 Mas informacion!
                             </button>
                         </article>

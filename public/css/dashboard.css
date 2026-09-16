@@ -57,6 +57,7 @@ body.theme--dark {
   justify-content: center;
   cursor: pointer;
   color: inherit;
+  font-family: inherit;
 }
 .link{
   color: inherit;
@@ -128,18 +129,121 @@ body.theme--dark {
   border-radius: 10px;
   transition: transform 0.3s ease;
 }
+.navbar__item--highlight:hover{
+  color: var(--bg-main);
+  transform: scale(1.1);
+}
 .navbar__item--accent{
   background-color: var(--brand-accent);
   border-radius: 10px;
 }
-.navbar__link--accent:hover,
-.navbar__link--highlight:hover{
+.navbar__profile{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  transition: color 0.3s ease;
+}
+.navbar__profile:hover{
   color: var(--bg-main);
 }
-.navbar__item--highlight:hover{
-  transform: scale(1.1);
+.navbar__icon-profile{
+  font-size: 1.6rem;
 }
-
+.dashboard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 80px);
+}
+.sidebar {
+  background-color: var(--bg-surface);
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+  border-right: 1px solid #00000014;
+}
+.sidebar__link,
+.sidebar__logout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8em 1em;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.sidebar__link:hover,
+.sidebar__logout:hover {
+  background-color: var(--brand-primary);
+  color: var(--bg-main);
+}
+.sidebar__logout {
+  margin-top: auto; 
+}
+.dashboard__content {
+  padding: 2.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.kpi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5em;
+}
+.kpi__card {
+  border: 1px solid var(--text-main);
+  background-color: var(--bg-surface);
+  padding: 1.5em;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+.kpi__value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--brand-accent);
+}
+.panel__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5em;
+  margin-top: 1em;
+}
+.car-card {
+  background-color: var(--bg-surface);
+  border-radius: 12px;
+  border: 1px solid var(--text-main);
+  padding: 1.2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+.car-card:hover{
+  transform: translateY(-10px);
+}
+.car-card__img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.car-card__year-category{
+  display: flex;
+  justify-content: space-between;
+}
+.car-card__btn {
+  margin-top: auto;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  background-color: var(--brand-accent);
+}
 @media(max-width: 768px){
   .navbar__list{
     flex-direction: column;
