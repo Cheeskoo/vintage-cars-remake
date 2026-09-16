@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,home,favorite,settings,logout&display=block" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/dashboard.css">
     <title>Vintage Cars</title>
@@ -34,8 +34,65 @@
             </div>
         </nav>
     </header>
-    <main>
-    </main>
+        <div class="dashboard">
+            <aside class="sidebar">
+                <a href="#" class="link sidebar__link">
+                    Principal
+                    <span class="material-symbols-outlined sidebar__icon">home</span>
+                </a>
+                <a href="#" class="link sidebar__link">
+                    Favoritos
+                    <span class="material-symbols-outlined sidebar__icon">favorite</span>
+                </a>
+                <a href="#" class="link sidebar__link">
+                    Configuracion
+                    <span class="material-symbols-outlined sidebar__icon">settings</span>
+                </a>
+                <button type="button" class="btn sidebar__logout" id="btnLogout">Salir
+                    <span class="material-symbols-outlined sidebar__icon">logout</span>
+                </button>
+            </aside>
+            <main class="dashboard__content">
+                <h1 class="dashboard__title">
+                    Hola, <span class="dashboard__username" id="userName">Juan</span>!
+                </h1>
+                <section class="kpi">
+                    <article class="kpi__card">
+                        <span class="kpi__title">Autos Guardados</span>
+                        <span class="kpi__value" id="savedCars">6</span>
+                    </article>
+                    <article class="kpi__card">
+                        <span class="kpi__title">Busquedas Recientes</span>
+                        <span class="kpi__value" id="savedSearches">1</span>
+                    </article>
+                    <article class="kpi__card">
+                        <span class="kpi__title">Notificaciones</span>
+                        <span class="kpi__value" id="userNotifications">2</span>
+                    </article>
+                </section>
+                <section class="panel">
+                    <h2 class="panel__title">
+                        Coleccion Destacada
+                    </h2>
+                    <div class="panel__grid">
+                        <article class="card">
+                            <div class="card__info">
+                                <img src="#" alt="info-car" class="card__img">
+                                <h3 class="card__title">
+                                    Porsche 911
+                                </h3>
+                                <p class="card__year-category">
+                                    1985 Clasico Deportivo
+                                </p>
+                            </div>
+                            <button type="button" class="btn card__btn">
+                                Mas informacion!
+                            </button>
+                        </article>
+                    </div>
+                </section>
+            </main>
+        </div>
     <script type="module" src="../js/dashboard.js" defer></script>
 </body>
 </html>
