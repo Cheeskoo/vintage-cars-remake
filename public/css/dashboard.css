@@ -130,8 +130,10 @@ body.theme--dark {
   transition: transform 0.3s ease;
 }
 .navbar__item--highlight:hover{
-  color: var(--bg-main);
   transform: scale(1.1);
+}
+.navbar__link--highlight:hover{
+  color: var(--bg-main);
 }
 .navbar__item--accent{
   background-color: var(--brand-accent);
