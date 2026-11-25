@@ -1,11 +1,4 @@
-import { initTheme, themeToggle } from './js/script/darkMode.js'
-import { openMenu, closeMenu } from './js/script/menu.js'
-
-const body = document.body;
-const btnToggle = document.querySelector('.navbar__theme-toggle')
-const menu = document.querySelector('.navbar__menu')
-const close = document.querySelector('.navbar__close')
-const themeIcon = document.querySelector('.navbar__icon--toggle')
+import { initLayout } from './js/script/layout.js'
 
 const intervalTime = 3000
 const slider = document.getElementById('heroSlider')
@@ -14,20 +7,18 @@ const nextBtn = document.getElementById('sliderNext')
 const dotsContainer= document.getElementById('sliderDots')
 const images = slider.querySelectorAll('.hero__image')
 
-document.addEventListener('DOMContentLoaded', ()=>{
-    initTheme(body, themeIcon)
-    sliderFunction()
-    intervalSliderInit()
-})
-menu.addEventListener('click', openMenu)
-close.addEventListener('click', closeMenu)
-btnToggle.addEventListener('click', ()=>{
-    themeToggle(body, themeIcon)
+let autoChange = null
+
+sliderFunction()
+intervalSliderInit()
+initLayout().then(user => {
+    if (!user) return
+    const heroSecondary = document.getElementById('heroSecondary')
+    heroSecondary.textContent = 'Ver mis favoritos'
+    heroSecondary.href = './html/dashboard.html'
 })
 slider.addEventListener('mouseenter', intervalSliderStop);
 slider.addEventListener('mouseleave', intervalSliderInit);
-
-let autoChange = null
 
 function intervalSliderInit(){
     if(!autoChange){
@@ -41,7 +32,9 @@ function intervalSliderStop(){
 
 function sliderFunction(){
     images.forEach((_, index)=>{
-        const dot = document.createElement('div')
+        const dot = document.createElement('button')
+        dot.type = 'button'
+        dot.setAttribute('aria-label', `Ver imagen ${index + 1}`)
         dot.classList.add('hero__slider-dot')
         if(index === 0){ 
             dot.classList.add('hero__slider-dot--active')

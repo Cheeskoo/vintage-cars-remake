@@ -261,6 +261,8 @@ body.theme--dark {
 .hero__slider-dot{
   width: 10px;
   height: 10px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
   background-color: #fefae080;
   cursor: pointer;

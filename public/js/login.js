@@ -1,32 +1,55 @@
-import { initTheme, themeToggle } from './script/darkMode.js'
-import { openMenu, closeMenu} from './script/menu.js'
-
-const body = document.body
-const themeIcon = document.querySelector('.navbar__icon--toggle')
-const btnToggle = document.querySelector('.navbar__theme-toggle')
-const menu = document.querySelector('.navbar__menu')
-const close = document.querySelector('.navbar__close')
+import { api } from './script/api.js'
+import { initLayout } from './script/layout.js'
 
 const cardFormLogin = document.getElementById('cardFormLogin')
 const cardFormRegister = document.getElementById('cardFormRegister')
+const formLogin = document.getElementById('formLogin')
+const formRegister = document.getElementById('formRegister')
 
-const btnChangeRegister = document.getElementById('formChangeRegister')
-const btnChangeLogin = document.getElementById('formChangeLogin')
+const params = new URLSearchParams(window.location.search)
+// Solo se permite volver a rutas internas del sitio.
+const next = params.get('next')?.startsWith('/') && !params.get('next').startsWith('//')
+    ? params.get('next')
+    : '/html/dashboard.html'
 
-document.addEventListener('DOMContentLoaded', ()=>{
- initTheme(body, themeIcon)
-})
-menu.addEventListener('click', openMenu)
-close.addEventListener('click', closeMenu)
-btnToggle.addEventListener('click',()=>{
-    themeToggle(body, themeIcon)
+initLayout().then(user => {
+    if (user) window.location.replace(next)
 })
 
-btnChangeRegister.addEventListener('click', ()=>{
-    cardFormRegister.classList.remove('is-hidden')
-    cardFormLogin.classList.add('is-hidden')
+function showForm(mode) {
+    const isRegister = mode === 'registro'
+    cardFormRegister.classList.toggle('is-hidden', !isRegister)
+    cardFormLogin.classList.toggle('is-hidden', isRegister)
+    document.title = `${isRegister ? 'Registro' : 'Ingresar'} | Vintage Cars`
+}
+showForm(params.get('modo'))
+
+document.getElementById('formChangeRegister').addEventListener('click', () => showForm('registro'))
+document.getElementById('formChangeLogin').addEventListener('click', () => showForm('login'))
+
+async function handleSubmit(form, endpoint, errorEl) {
+    const button = form.querySelector('[type="submit"]')
+    const body = Object.fromEntries(new FormData(form))
+    errorEl.hidden = true
+    button.disabled = true
+    const originalText = button.textContent
+    button.textContent = 'Un momento...'
+    try {
+        await api(endpoint, { method: 'POST', body })
+        window.location.replace(next)
+    } catch (err) {
+        errorEl.textContent = err.message
+        errorEl.hidden = false
+        button.disabled = false
+        button.textContent = originalText
+    }
+}
+
+formLogin.addEventListener('submit', e => {
+    e.preventDefault()
+    handleSubmit(formLogin, '/auth/login', document.getElementById('loginError'))
 })
-btnChangeLogin.addEventListener('click', ()=>{
-    cardFormLogin.classList.remove('is-hidden')
-    cardFormRegister.classList.add('is-hidden')
+formRegister.addEventListener('submit', e => {
+    e.preventDefault()
+    handleSubmit(formRegister, '/auth/register', document.getElementById('registerError'))
 })

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&icon_names=wb_sunny,moon_stars,menu,close,bookmark,dangerous&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&icon_names=arrow_back,chevron_backward,chevron_forward,close,directions_car,favorite,home,logout,menu,moon_stars,search,tune,wb_sunny&display=block" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/catalogo.css">
+    <link rel="stylesheet" href="../css/components.css">
     <link rel="shortcut icon" href="../images/car-icon.ico" type="image/x-icon">
-    <title>Vintage Cars</title>
+    <title>Catalogo | Vintage Cars</title>
 </head>
 <body>
     <header class="navbar-wrapper">
@@ -21,8 +22,9 @@
                 <a href="../index.html" class="link navbar__logo">Vintage Cars</a>
             </div>
             <div class="navbar__searchbar-wrapper">
-                <form>
-                    <input type="search" name="searchbar" id="searchBar" class="navbar__searchbar" placeholder="Busca tu auto favorito">
+                <form id="searchForm" role="search">
+                    <label for="searchBar" class="sr-only">Buscar autos</label>
+                    <input type="search" name="buscar" id="searchBar" class="navbar__searchbar" placeholder="Busca tu auto favorito" autocomplete="off">
                 </form>
             </div>
             <div class="navbar__end">
@@ -34,93 +36,78 @@
                         <span class="material-symbols-outlined navbar__icon navbar__icon--big">close</span>
                     </button></li>
                     <li class="navbar__item navbar__item--highlight"><a href="../index.html" class="link navbar__link navbar__link--highlight">Inicio</a></li>
-                    <li class="navbar__item"><a href="./dashboard.html" class="link navbar__link">Dashboard</a></li>
-                    <li class="navbar__item navbar__item--accent"><a href="./login.html" class="link navbar__link navbar__link--accent">Login</a></li>
+                    <li class="navbar__item"><a href="./dashboard.html" class="link navbar__link">Mis favoritos</a></li>
+                    <li class="navbar__item navbar__item--accent" id="navAuth"><a href="./login.html" class="link navbar__link navbar__link--accent">Login</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <aside class="filters">
-            <div class="filters__section filters__section--mobile-only">
-                <button class="btn filters__menu" id="filterMenu">
-                    Filtros
-                </button>
-            </div>
+        <aside class="filters" id="filters">
             <form class="filters__form" id="asideForm">
-                <h2 class="filters__title">
-                    Filtros
-                </h2>
+                <div class="filters__header">
+                    <h2 class="filters__title">Filtros</h2>
+                    <button type="button" class="btn filters__close" id="filterClose" aria-label="Cerrar filtros">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
                 <fieldset class="filters__group">
-                    <legend class="filters__legend">
-                        Disponibilidad:
-                    </legend>
+                    <legend class="filters__legend">Disponibilidad:</legend>
                     <div class="filters__radio-wrapper">
-                        <input type="radio" name="disponibilidad" id="todos" class="filters__radio" value="default" checked>
-                        <label for="todos" class="filters__label-radio">
-                            Todos
-                        </label>
+                        <input type="radio" name="disponible" id="todos" class="filters__radio" value="default" checked>
+                        <label for="todos" class="filters__label-radio">Todos</label>
                     </div>
                     <div class="filters__radio-wrapper">
-                        <input type="radio" name="disponibilidad" id="disponibles" class="filters__radio" value="true">
-                        <label for="disponibles" class="filters__label-radio">
-                            Disponible
-                        </label>
-                    </div>                
+                        <input type="radio" name="disponible" id="disponibles" class="filters__radio" value="true">
+                        <label for="disponibles" class="filters__label-radio">Disponible</label>
+                    </div>
                     <div class="filters__radio-wrapper">
-                        <input type="radio" name="disponibilidad" id="noDisponibles" class="filters__radio" value="false">
-                        <label for="noDisponibles" class="filters__label-radio">
-                            No disponible
-                        </label>
+                        <input type="radio" name="disponible" id="noDisponibles" class="filters__radio" value="false">
+                        <label for="noDisponibles" class="filters__label-radio">No disponible</label>
                     </div>
                 </fieldset>
 
                 <div class="filters__field">
-                    <label for="filtrarCategoria" class="filters__label">
-                        Categoria:
-                    </label>
-                    <select name="categoria" id="filtrarCategoria" class="filters__select">     
+                    <label for="filtrarCategoria" class="filters__label">Categoria:</label>
+                    <select name="categoria" id="filtrarCategoria" class="filters__select">
+                        <option value="default">Todas</option>
                     </select>
                 </div>
 
                 <div class="filters__field">
-                    <label for="filtrarMarca" class="filters__label">
-                        Marca:
-                    </label>
+                    <label for="filtrarMarca" class="filters__label">Marca:</label>
                     <select name="marca" id="filtrarMarca" class="filters__select">
+                        <option value="default">Todas</option>
                     </select>
                 </div>
 
                 <div class="filters__field">
-                    <label for="filtrarPrecio" class="filters__label">
-                        Ordenar:
-                    </label>
-                    <select name="precio" id="filtrarPrecio" class="filters__select">
+                    <label for="filtrarPrecio" class="filters__label">Ordenar:</label>
+                    <select name="orden" id="filtrarPrecio" class="filters__select">
                         <option value="default" class="filters__option">Por defecto</option>
-                        <option value="ASC" class="filters__option">Menor Precio</option>
-                        <option value="DESC" class="filters__option">Mayor Precio</option>
+                        <option value="ASC" class="filters__option">Menor precio</option>
+                        <option value="DESC" class="filters__option">Mayor precio</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn filters__btn">
-                    Filtrar
-                </button>
+                <button type="submit" class="btn filters__btn">Filtrar</button>
+                <button type="button" class="btn filters__reset" id="filterReset">Limpiar filtros</button>
             </form>
         </aside>
+        <div class="filters__backdrop" id="filterBackdrop"></div>
         <section class="products">
-            <ul class="products__grid">
+            <div class="products__toolbar">
+                <p class="products__count" id="resultsCount" aria-live="polite">Cargando autos...</p>
+                <button type="button" class="btn products__filters-btn" id="filterMenu" aria-controls="filters" aria-expanded="false">
+                    <span class="material-symbols-outlined">tune</span>
+                    Filtros
+                </button>
+            </div>
+            <ul class="products__grid" id="productsGrid">
+                <li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li>
             </ul>
         </section>
     </main>
-    <script type="module" src="../js/catalogo.js" defer></script>
+    <script type="module" src="../js/catalogo.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
