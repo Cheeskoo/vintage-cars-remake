@@ -37,7 +37,6 @@ async function loadFilterOptions() {
     filtroMarca.insertAdjacentHTML('beforeend', options(marcas))
 }
 
-// ---------- Filtros <-> URL ----------
 function currentParams() {
     const data = new FormData(filtersForm)
     const params = new URLSearchParams()
@@ -101,14 +100,12 @@ function resetFilters() {
     loadCars()
 }
 
-// ---------- Eventos ----------
 filtersForm.addEventListener('submit', e => {
     e.preventDefault()
     toggleFilters(false)
     loadCars()
 })
 filtersForm.addEventListener('change', () => {
-    // En escritorio los filtros se aplican al instante.
     if (window.matchMedia('(min-width: 931px)').matches) loadCars()
 })
 document.getElementById('filterReset').addEventListener('click', resetFilters)

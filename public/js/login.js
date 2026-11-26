@@ -7,7 +7,6 @@ const formLogin = document.getElementById('formLogin')
 const formRegister = document.getElementById('formRegister')
 
 const params = new URLSearchParams(window.location.search)
-// Solo se permite volver a rutas internas del sitio.
 const next = params.get('next')?.startsWith('/') && !params.get('next').startsWith('//')
     ? params.get('next')
     : '/html/dashboard.html'

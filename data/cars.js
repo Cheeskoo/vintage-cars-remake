@@ -1,5 +1,3 @@
-// Catalogo de autos clasicos. Cada auto tiene una imagen principal (portada)
-// y una galeria de fotos para el slider de la vista de detalle.
 export const cars = [
   {
     "id": 1,

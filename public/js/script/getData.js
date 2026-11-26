@@ -1,6 +1,5 @@
 import { escapeHtml, formatPrice } from './utils.js'
 
-// Genera las tarjetas del catalogo. `favoriteIds` es un Set con los ids guardados por el usuario.
 export function getData(cars, favoriteIds = new Set()) {
     return cars.map(car => {
         const isFavorite = favoriteIds.has(car.id)

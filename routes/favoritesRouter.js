@@ -9,7 +9,6 @@ favoritesRouter.use(requireAuth)
 
 const withoutGallery = ({ imagenes, ...car }) => car
 
-// GET /api/favorites -> autos guardados por el usuario
 favoritesRouter.get('/', (req, res) => {
     const favoritos = req.user.favoritos
         .map(id => cars.find(car => car.id === id))
@@ -24,7 +23,6 @@ function findCar(req, res) {
     return car
 }
 
-// POST /api/favorites/:carId -> guardar
 favoritesRouter.post('/:carId', async (req, res) => {
     const car = findCar(req, res)
     if (!car) return
@@ -32,7 +30,6 @@ favoritesRouter.post('/:carId', async (req, res) => {
     res.status(201).json({ ids })
 })
 
-// DELETE /api/favorites/:carId -> quitar
 favoritesRouter.delete('/:carId', async (req, res) => {
     const car = findCar(req, res)
     if (!car) return

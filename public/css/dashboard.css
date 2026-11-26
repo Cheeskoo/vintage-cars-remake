@@ -278,7 +278,6 @@ body.theme--dark {
     right: 0;
   }
 }
-/* ---------- Panel de favoritos ---------- */
 .dashboard__title{
   font-size: clamp(1.8rem, 3vw, 2.4rem);
 }

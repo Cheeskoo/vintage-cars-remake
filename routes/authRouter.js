@@ -7,7 +7,6 @@ export const authRouter = express.Router()
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const USER_RE = /^[a-zA-Z0-9_.-]{3,30}$/
 
-// POST /api/auth/register
 authRouter.post('/register', async (req, res) => {
     const nombre = String(req.body?.nombre ?? '').trim()
     const apellido = String(req.body?.apellido ?? '').trim()
@@ -32,7 +31,6 @@ authRouter.post('/register', async (req, res) => {
     res.status(201).json({ user: publicUser(user) })
 })
 
-// POST /api/auth/login  (acepta usuario o correo)
 authRouter.post('/login', async (req, res) => {
     const login = String(req.body?.usuario ?? '')
     const password = String(req.body?.password ?? '')
@@ -45,13 +43,11 @@ authRouter.post('/login', async (req, res) => {
     res.json({ user: publicUser(user) })
 })
 
-// POST /api/auth/logout
 authRouter.post('/logout', (req, res) => {
     clearSessionCookie(res)
     res.json({ ok: true })
 })
 
-// GET /api/auth/me -> usuario actual o null
 authRouter.get('/me', (req, res) => {
     res.json({ user: req.user ? publicUser(req.user) : null })
 })

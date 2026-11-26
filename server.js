@@ -5,7 +5,6 @@ import { authRouter } from './routes/authRouter.js'
 import { favoritesRouter } from './routes/favoritesRouter.js'
 import { attachUser } from './lib/auth.js'
 
-// PORT es el nombre estandar; PORT_SESSION_KEY se mantiene por compatibilidad con el .env anterior.
 const PORT = process.env.PORT || process.env.PORT_SESSION_KEY || 3000
 const app = express()
 

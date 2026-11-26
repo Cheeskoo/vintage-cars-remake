@@ -3,7 +3,6 @@ import { openMenu, closeMenu } from './menu.js'
 import { getCurrentUser, logout } from './api.js'
 import { escapeHtml } from './utils.js'
 
-// Inicializa lo comun a todas las paginas: tema, menu movil y estado de sesion en la barra.
 export async function initLayout() {
     const body = document.body
     const themeIcon = document.querySelector('.navbar__icon--toggle')

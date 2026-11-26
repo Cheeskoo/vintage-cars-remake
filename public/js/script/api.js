@@ -1,4 +1,3 @@
-// Pequeño cliente para la API del servidor Express.
 export async function api(path, { method = 'GET', body } = {}) {
     const res = await fetch(`/api${path}`, {
         method,
@@ -16,7 +15,6 @@ export async function api(path, { method = 'GET', body } = {}) {
 }
 
 let mePromise = null
-// Devuelve el usuario logueado o null (se pide una sola vez por pagina).
 export function getCurrentUser() {
     mePromise ??= api('/auth/me').then(data => data.user).catch(() => null)
     return mePromise
@@ -31,7 +29,6 @@ export const getFavorites = () => api('/favorites')
 export const addFavorite = id => api(`/favorites/${id}`, { method: 'POST' })
 export const removeFavorite = id => api(`/favorites/${id}`, { method: 'DELETE' })
 
-// Lleva al login y vuelve a la pagina actual despues de ingresar.
 export function goToLogin() {
     const next = encodeURIComponent(window.location.pathname + window.location.search)
     window.location.href = `/html/login.html?next=${next}`

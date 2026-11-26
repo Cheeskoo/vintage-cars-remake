@@ -4,15 +4,13 @@ import { cars } from '../data/cars.js'
 export const carsRouter = express.Router()
 
 const normalize = text => String(text ?? '')
-    .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim()
+    .normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim()
 
-// GET /api/cars/filtros -> opciones para los selects del catalogo
 carsRouter.get('/filtros', (req, res) => {
     const unique = key => [...new Set(cars.map(car => car[key]))].sort((a, b) => a.localeCompare(b, 'es'))
     res.json({ categorias: unique('categoria'), marcas: unique('marca') })
 })
 
-// GET /api/cars?buscar=&categoria=&marca=&disponible=true|false&orden=ASC|DESC
 carsRouter.get('/', (req, res) => {
     const { buscar, categoria, marca, disponible, orden } = req.query
     let result = [...cars]
@@ -33,7 +31,6 @@ carsRouter.get('/', (req, res) => {
     res.json(result.map(({ imagenes, ...car }) => car))
 })
 
-// GET /api/cars/:id -> detalle completo con galeria
 carsRouter.get('/:id', (req, res) => {
     const car = cars.find(c => c.id === Number(req.params.id))
     if (!car) return res.status(404).json({ error: 'Auto no encontrado.' })

@@ -1,4 +1,3 @@
-/* Vista de detalle de un auto (se carga despues de catalogo.css) */
 main.detail-page{
   display: block;
   max-width: 1400px;
@@ -22,7 +21,6 @@ main.detail-page{
   align-items: start;
 }
 
-/* ---------- Slider ---------- */
 .slider{
   position: relative;
   border-radius: 16px;
@@ -151,7 +149,6 @@ main.detail-page{
   display: block;
 }
 
-/* ---------- Informacion ---------- */
 .detail__info{
   display: flex;
   flex-direction: column;
@@ -219,7 +216,6 @@ main.detail-page{
   font-weight: 600;
 }
 
-/* ---------- Relacionados ---------- */
 .related{
   margin-top: 4em;
 }

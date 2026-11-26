@@ -70,7 +70,6 @@ function render() {
 
 bindFavoriteButtons(grid, state, (id, saved) => {
     if (saved) return
-    // Al quitar un favorito desde el panel, la tarjeta desaparece.
     state.cars = state.cars.filter(car => car.id !== id)
     const card = grid.querySelector(`[data-car="${id}"]`)
     card?.classList.add('car-card--removing')

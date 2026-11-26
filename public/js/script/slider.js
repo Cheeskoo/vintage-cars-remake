@@ -1,5 +1,3 @@
-// Slider de fotos reutilizable basado en scroll-snap.
-// root: contenedor con .slider__track (imagenes), .slider__btn--prev/--next, .slider__dots y opcionalmente .slider__thumbs
 export function createSlider(root, { interval = 0 } = {}) {
     const track = root.querySelector('.slider__track')
     const slides = [...track.children]

@@ -1,8 +1,6 @@
 import { addFavorite, removeFavorite, goToLogin } from './api.js'
 import { showToast } from './utils.js'
 
-// Maneja los clicks en cualquier boton [data-fav-id] dentro de `container`.
-// `state.user` y `state.ids` (Set) se comparten con la pagina.
 export function bindFavoriteButtons(container, state, onChange) {
     container.addEventListener('click', async e => {
         const btn = e.target.closest('[data-fav-id]')
