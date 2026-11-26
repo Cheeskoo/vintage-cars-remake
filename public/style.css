@@ -261,6 +261,8 @@ body.theme--dark {
 .hero__slider-dot{
   width: 10px;
   height: 10px;
+  padding: 0;
+  border: none;
   border-radius: 50%;
   background-color: #fefae080;
   cursor: pointer;
@@ -270,7 +272,6 @@ body.theme--dark {
   background-color: var(--brand-accent);
   transform: scale(1.3);
 }
-
 
 @media(max-width: 768px){
   .navbar__list{
@@ -282,7 +283,8 @@ body.theme--dark {
     height: 100vh;
     width: min(100%, 375px);
     background-color: var(--bg-surface);
-    transition: right 0.75s ease-in-out
+    transition: right 0.75s ease-in-out;
+    z-index: 20;
   }
   .navbar__menu--mobile-only,
   .navbar__close--mobile-only{
@@ -295,9 +297,6 @@ body.theme--dark {
   }
   .navbar__link{
     font-size: 1.4rem;
-  }
-  .navbar__link--highlight:hover{
-    font-size: 1.6rem;
   }
   .navbar__icon--big{
     font-size: 1.8rem;
